@@ -23,13 +23,13 @@ app.use((req, res, next) => {
     next();
   });
 
-app.get(`/`, function (req, res) {
+app.get(`/app`, function (req, res) {
 	res.status(200).json({msg: `It's a GET request.`});
 });
 
-const PORT = 4000;
+const port = 4000;
 const httpServer = createServer(app);
 
-httpServer.listen(PORT, () => {
-    console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
+httpServer.listen(process.env.PORT || port, () => {
+    console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
   });
